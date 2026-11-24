@@ -1,6 +1,3 @@
-$utf8NoBom = New-Object System.Text.UTF8Encoding $false
-
-$readmeCompleto = @'
 # Laboratorio N.° 09: Aplicación de Patrones de Diseño y Arquitectura MVC con Qt 6
 
 **Universidad Nacional de San Agustín de Arequipa (UNSA)**  
@@ -205,6 +202,20 @@ Las pruebas enlazan únicamente contra `lab09_core` (sin `QtWidgets`), verifican
 * **Compilador:** MinGW GCC 13.1.0 con soporte **C++20**
 * **Herramienta de construcción:** CMake 3.16+
 
-### Comandos (compilación fuera del árbol en `build/`)
+### Compilación (fuera del árbol)
 ```bash
-# 1. Configurar proyecto
+cmake -S . -B build -G "MinGW Makefiles"
+cmake --build build
+```
+
+### Ejecución de pruebas unitarias (sin GUI)
+```bash
+ctest --test-dir build --output-on-failure
+```
+
+### Ejecución de la aplicación
+```bash
+./build/lab09_app.exe
+```
+
+
